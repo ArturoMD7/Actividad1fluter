@@ -1,6 +1,7 @@
 // lib/card.dart
 import 'package:flutter/material.dart';
 
+
 class ListScreen extends StatelessWidget {
   const ListScreen({super.key});
 

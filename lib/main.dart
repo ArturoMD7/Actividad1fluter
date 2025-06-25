@@ -29,7 +29,7 @@ class _NavigationExampleState extends State<NavigationExample> {
     MyHomePage(title: 'Home Page'),
     ListScreen(),
     CardScreen(),
-    ImageScreen(),
+    Collage(),
   ];
 
   final List<String> pageTitles = const [
