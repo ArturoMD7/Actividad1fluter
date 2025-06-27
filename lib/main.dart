@@ -138,6 +138,13 @@ class _MyHomePageState extends State<MyHomePage> {
   void _incrementCounter() {
     setState(() {
       _counter++;
+      if (_counter == 20) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Valor maximo de 20'))
+        );
+      } else if(_counter > 20) {
+        _counter =20;
+      }
     });
   }
 
@@ -145,8 +152,17 @@ class _MyHomePageState extends State<MyHomePage> {
     setState(() {
       _counter--;
       if (_counter < 0) {
-        _counter = 0; 
+        _counter = 0;
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Valor minimo de 0'))
+        );
       }
+    });
+  }
+
+  void _restartCounter() {
+    setState(() {
+      _counter = 0;  
     });
   }
 
@@ -184,6 +200,12 @@ class _MyHomePageState extends State<MyHomePage> {
             onPressed: _incrementCounter,
             tooltip: 'Increment',
             child: const Icon(Icons.add),
+          ),
+          const SizedBox(width: 16),
+          FloatingActionButton(
+            onPressed: _restartCounter,
+            tooltip: 'Restart',
+            child: const Icon(Icons.restore),
           ),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
